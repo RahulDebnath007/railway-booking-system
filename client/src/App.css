@@ -1,0 +1,1154 @@
+/* =========================
+   ADMIN PAGES
+========================= */
+
+.admin-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+}
+
+.admin-header {
+    background: #173f73;
+    color: white;
+    padding: 18px 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.admin-header p {
+    margin: 4px 0 0;
+    opacity: 0.8;
+}
+
+.admin-back-button {
+    border: none;
+    background: white;
+    color: #173f73;
+
+    padding: 11px 18px;
+    border-radius: 7px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.admin-container {
+    width: min(1100px, 92%);
+    margin: 40px auto;
+}
+
+.admin-page-heading {
+    margin-bottom: 28px;
+}
+
+.admin-page-heading h1 {
+    margin: 0 0 8px;
+    color: #1f2a3d;
+    font-size: 34px;
+}
+
+.admin-page-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 16px;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+}
+
+.admin-card h2 {
+    margin: 0;
+    color: #1f2a3d;
+}
+
+.admin-card-description {
+    color: #64748b;
+    margin-top: 7px;
+}
+
+.station-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input {
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+}
+
+.admin-primary-button {
+    grid-column: 1 / -1;
+
+    width: fit-content;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 12px 22px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.admin-primary-button:hover {
+    background: #1d4ed8;
+}
+
+.admin-primary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.admin-secondary-button {
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #1e3a5f;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.station-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.station-table-wrapper {
+    overflow-x: auto;
+}
+
+.station-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.station-table th {
+    text-align: left;
+    background: #f8fafc;
+    color: #475569;
+
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.station-table td {
+    padding: 15px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+.station-code {
+    display: inline-block;
+
+    background: #e0edff;
+    color: #1d4ed8;
+
+    padding: 5px 10px;
+    border-radius: 6px;
+
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.admin-error {
+    margin-top: 18px;
+    padding: 12px 15px;
+
+    background: #fee2e2;
+    color: #b91c1c;
+
+    border-radius: 7px;
+}
+
+.admin-success {
+    margin-top: 18px;
+    padding: 12px 15px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    border-radius: 7px;
+}
+
+.admin-empty {
+    padding: 35px;
+    text-align: center;
+
+    color: #64748b;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .admin-header {
+        padding: 16px 20px;
+    }
+
+    .admin-container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .station-form {
+        grid-template-columns: 1fr;
+    }
+
+    .station-list-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .admin-card {
+        padding: 20px;
+    }
+
+    .admin-page-heading h1 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================
+   SEARCH FORM - RESPONSIVE FIX
+   ========================================= */
+
+.search-card {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.search-card form {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+
+    /* Important: prevents long dropdown text
+       from expanding the grid */
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 20px;
+
+    width: 100%;
+}
+
+.form-group {
+    min-width: 0;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+    .form-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-card {
+        padding: 24px;
+    }
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
+
+/* =========================================================
+   MAIN CONTAINERS
+   ========================================================= */
+
+body.dark-mode .page-container {
+    background-color: #0f172a;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+body.dark-mode .navbar {
+    background-color: #111827;
+    border-bottom: 1px solid #1f2937;
+}
+
+body.dark-mode .navbar-brand {
+    color: #ffffff;
+}
+
+body.dark-mode .navbar-actions button {
+    background-color: #ffffff;
+    color: #111827;
+}
+
+body.dark-mode .navbar-actions button:hover {
+    background-color: #e5e7eb;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
+body.dark-mode p {
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+body.dark-mode .card {
+    background-color: #1e293b;
+    color: #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   SEARCH CARD
+   ========================================================= */
+
+body.dark-mode .search-card {
+    background-color: #1e293b;
+    color: #e5e7eb;
+}
+
+
+/* =========================================================
+   FORM LABELS
+   ========================================================= */
+
+body.dark-mode label {
+    color: #e2e8f0;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+body.dark-mode input::placeholder {
+    color: #94a3b8;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+
+/* =========================================================
+   SELECT OPTIONS
+   ========================================================= */
+
+body.dark-mode select option {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+body.dark-mode button {
+    border-color: #475569;
+}
+
+body.dark-mode .primary-button {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+body.dark-mode .primary-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+body.dark-mode table {
+    background-color: #1e293b;
+    color: #e5e7eb;
+}
+
+body.dark-mode th {
+    background-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark-mode td {
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+body.dark-mode a {
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   GENERIC SECTIONS
+   ========================================================= */
+
+body.dark-mode section {
+    color: #e5e7eb;
+}
+
+
+/* =========================================================
+   TRAIN RESULT CARD
+   ========================================================= */
+
+body.dark-mode .train-card {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+
+/* Train card headings */
+
+body.dark-mode .train-card h1,
+body.dark-mode .train-card h2,
+body.dark-mode .train-card h3,
+body.dark-mode .train-card h4 {
+    color: #f8fafc;
+}
+
+
+/* Train card normal text */
+
+body.dark-mode .train-card p,
+body.dark-mode .train-card span,
+body.dark-mode .train-card div {
+    color: #e2e8f0;
+}
+
+
+/* =========================================================
+   TRAIN ROUTE / JOURNEY INFORMATION
+   ========================================================= */
+
+body.dark-mode .train-card .train-route,
+body.dark-mode .train-card .journey,
+body.dark-mode .train-card .route {
+    color: #e2e8f0;
+}
+
+
+/* =========================================================
+   TRAIN INFORMATION BOXES
+   ========================================================= */
+
+/*
+   Fixes:
+   Class
+   3A
+
+   Fare
+   ₹1900
+
+   Available
+   64 seats
+*/
+
+body.dark-mode .train-card .info-box {
+    background-color: #273449;
+    color: #f8fafc;
+}
+
+body.dark-mode .train-card .info-box strong,
+body.dark-mode .train-card .info-box span,
+body.dark-mode .train-card .info-box p,
+body.dark-mode .train-card .info-box div {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   TRAIN CARD DIVIDERS
+   ========================================================= */
+
+body.dark-mode .train-card hr {
+    border-color: #64748b;
+}
+
+body.dark-mode .train-card::after {
+    border-color: #64748b;
+}
+
+
+/* =========================================================
+   AVAILABLE / SOLD OUT STATUS
+   ========================================================= */
+
+body.dark-mode .available {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+body.dark-mode .sold-out {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* =========================================================
+   ERROR ALERT
+   ========================================================= */
+
+body.dark-mode .error {
+    background-color: #450a0a;
+    color: #fecaca;
+}
+
+
+/* =========================================================
+   SUCCESS ALERT
+   ========================================================= */
+
+body.dark-mode .success {
+    background-color: #052e16;
+    color: #bbf7d0;
+}
+
+
+/* =========================================================
+   WARNING ALERT
+   ========================================================= */
+
+body.dark-mode .warning {
+    background-color: #422006;
+    color: #fde68a;
+}
+
+
+/* =========================================================
+   DISABLED ELEMENTS
+   ========================================================= */
+
+body.dark-mode button:disabled {
+    background-color: #475569;
+    color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+body.dark-mode ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 5px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* =========================================================
+   SEARCH RESULTS - BOOKING META
+   ========================================================= */
+
+body.dark-mode .booking-meta {
+    color: #f8fafc;
+}
+
+body.dark-mode .booking-meta-item {
+    background-color: #273449;
+    color: #f8fafc;
+}
+
+body.dark-mode .booking-meta-item strong {
+    color: #f8fafc;
+}
+
+/* =========================================================
+   SEAT GRID - DARK MODE
+   ========================================================= */
+
+body.dark-mode .seat-grid {
+    background-color: #1e293b;
+}
+
+/* Common seat button */
+body.dark-mode .seat {
+    border: none;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* 🟢 AVAILABLE */
+body.dark-mode .seat.seat-available {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+body.dark-mode .seat.seat-available:hover {
+    background-color: #15803d;
+    transform: translateY(-1px);
+}
+
+/* 🔵 BOOKED */
+body.dark-mode .seat.seat-booked {
+    background-color: #2563eb;
+    color: #ffffff;
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Prevent browser disabled styling */
+body.dark-mode .seat.seat-booked:disabled {
+    background-color: #2563eb;
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* 🔷 SELECTED */
+body.dark-mode .seat.seat-selected {
+    background-color: #60a5fa;
+    color: #0f172a;
+    border: 2px solid #93c5fd;
+    font-weight: 600;
+}
+
+/* Selected hover */
+body.dark-mode .seat.seat-selected:hover {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* =========================================================
+   MY BOOKINGS - DARK MODE
+   ========================================================= */
+
+body.dark-mode .page-container {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+/* Page heading */
+body.dark-mode .page-header h1 {
+    color: #f8fafc;
+}
+
+body.dark-mode .page-header p {
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   TOP ACTION BAR
+   ========================================================= */
+
+body.dark-mode .top-action-bar {
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .top-action-bar h2 {
+    color: #f8fafc;
+}
+
+body.dark-mode .top-action-bar p {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   BOOKING CARD
+   ========================================================= */
+
+body.dark-mode .booking-card {
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Train name */
+body.dark-mode .booking-card-header h2 {
+    color: #f8fafc;
+}
+
+
+/* Train number */
+body.dark-mode .train-number {
+    color: #cbd5e1;
+}
+
+
+/* Divider */
+body.dark-mode .booking-card hr {
+    border-top-color: #475569;
+}
+
+
+/* =========================================================
+   JOURNEY SECTION
+   ========================================================= */
+
+body.dark-mode .station-label {
+    color: #94a3b8;
+}
+
+body.dark-mode .station strong {
+    color: #f8fafc;
+}
+
+body.dark-mode .station span:last-child {
+    color: #cbd5e1;
+}
+
+body.dark-mode .journey-arrow {
+    color: #60a5fa;
+}
+
+
+/* =========================================================
+   DETAIL BOXES
+   ========================================================= */
+
+body.dark-mode .detail-box {
+    background: #273449;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .detail-box span {
+    color: #94a3b8;
+}
+
+body.dark-mode .detail-box strong {
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   STATUS ROW
+   ========================================================= */
+
+body.dark-mode .status-row {
+    background: #273449;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .status-row > div {
+    color: #e2e8f0;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+body.dark-mode .status-confirmed,
+body.dark-mode .status-paid {
+    background: #064e3b;
+    color: #86efac;
+}
+
+body.dark-mode .status-pending {
+    background: #713f12;
+    color: #fde68a;
+}
+
+body.dark-mode .status-cancelled {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+
+/* =========================================================
+   PASSENGERS
+   ========================================================= */
+
+body.dark-mode .passengers-section h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .passenger-row {
+    background: #273449;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .passenger-info strong {
+    color: #f8fafc;
+}
+
+body.dark-mode .passenger-info span {
+    color: #94a3b8;
+}
+
+body.dark-mode .seat-badge {
+    background: #064e3b;
+    color: #86efac;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+body.dark-mode .secondary-button {
+    background: #334155;
+    color: #f8fafc;
+    border: 1px solid #475569;
+}
+
+body.dark-mode .secondary-button:hover {
+    background: #475569;
+}
+
+body.dark-mode .cancel-button {
+    background: #7f1d1d;
+    color: #fecaca;
+}
+
+body.dark-mode .cancel-button:hover {
+    background: #991b1b;
+}
+
+body.dark-mode .primary-button {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+body.dark-mode .primary-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   EMPTY / ERROR / LOADING CARDS
+   ========================================================= */
+
+body.dark-mode .empty-card,
+body.dark-mode .error-card,
+body.dark-mode .loading-card {
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .empty-card h2,
+body.dark-mode .error-card h2,
+body.dark-mode .loading-card h2 {
+    color: #f8fafc;
+}
+
+body.dark-mode .empty-card p,
+body.dark-mode .error-card p,
+body.dark-mode .loading-card p {
+    color: #cbd5e1;
+}
+
+
+/* =========================================================
+   LOADING SPINNER
+   ========================================================= */
+
+body.dark-mode .loading-spinner {
+    border-color: #334155;
+    border-top-color: #60a5fa;
+}
+
+/* =========================================
+   PAYMENT PAGE - DARK MODE
+   ========================================= */
+
+body.dark-mode .payment-method-card {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+
+/* Payment options container */
+
+body.dark-mode .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+
+/* Individual payment option */
+
+body.dark-mode .payment-option {
+    display: block;
+
+    background-color: #111827 !important;
+
+    border: 1px solid #475569 !important;
+
+    border-radius: 10px;
+
+    padding: 16px;
+
+    cursor: pointer;
+
+    color: #f8fafc !important;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Hover */
+
+body.dark-mode .payment-option:hover {
+    background-color: #1f2937 !important;
+    border-color: #64748b !important;
+}
+
+
+/* Selected payment option */
+
+body.dark-mode .payment-option.selected {
+    background-color: #172554 !important;
+
+    border: 2px solid #3b82f6 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Payment method title */
+
+body.dark-mode .payment-option strong {
+    color: #f8fafc !important;
+
+    margin-left: 10px;
+
+    font-size: 16px;
+}
+
+
+/* Payment description */
+
+body.dark-mode .payment-option p {
+    color: #cbd5e1 !important;
+
+    margin-left: 25px;
+
+    margin-bottom: 0;
+
+    margin-top: 8px;
+}
+
+
+/* Selected description */
+
+body.dark-mode .payment-option.selected p {
+    color: #bfdbfe !important;
+}
+
+
+/* Radio button */
+
+body.dark-mode .payment-option input[type="radio"] {
+    accent-color: #3b82f6;
+
+    cursor: pointer;
+}
+
+
+/* Payment heading */
+
+body.dark-mode .payment-method-card h2 {
+    color: #f8fafc !important;
+}
+
+
+/* Pay button */
+
+body.dark-mode .payment-method-card .primary-button {
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    border: none;
+}
+
+
+body.dark-mode .payment-method-card .primary-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+body.dark-mode .payment-method-card .primary-button:disabled {
+    background-color: #475569;
+
+    color: #cbd5e1;
+
+    cursor: not-allowed;
+}
+
+
+/* Error */
+
+body.dark-mode .payment-method-card .error-message {
+    background-color: #450a0a;
+
+    color: #fecaca;
+
+    border: 1px solid #7f1d1d;
+
+    padding: 12px;
+
+    border-radius: 8px;
+}
+
