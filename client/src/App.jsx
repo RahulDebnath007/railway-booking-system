@@ -8,73 +8,151 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Payment from "./pages/Payment";
 import MyBookings from "./pages/MyBookings";
+
+import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
+
 import AdminDashboard from "./pages/AdminDashboard";
 import ManageStations from "./pages/ManageStations";
 import ManageTrains from "./pages/ManageTrains";
 import ManageSeatInventory from "./pages/ManageSeatInventory";
+
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
-  return (
-    <ThemeProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    return (
+        <ThemeProvider>
+            <BrowserRouter>
+                <Routes>
 
-        <Route path="/search" element={<SearchResults />} />
+                    {/* =================================================
+                        PUBLIC ROUTES
+                       ================================================= */}
 
-        <Route path="/seats" element={<SeatSelection />} />
+                    <Route
+                        path="/signup"
+                        element={<Signup />}
+                    />
 
-        <Route path="/passengers" element={<PassengerDetails />} />
+                    <Route
+                        path="/login"
+                        element={<Login />}
+                    />
 
-        <Route path="/login" element={<Login />} />
 
-        <Route path="/signup" element={<Signup />} />
+                    {/* =================================================
+                        PROTECTED USER ROUTES
+                       ================================================= */}
 
-        <Route path="/payment" element={<Payment />} />
+                    <Route
+                        path="/"
+                        element={
+                            <ProtectedRoute>
+                                <Home />
+                            </ProtectedRoute>
+                        }
+                    />
 
-        <Route path="/my-bookings" element={<MyBookings />} />
+                    <Route
+                        path="/search"
+                        element={
+                            <ProtectedRoute>
+                                <SearchResults />
+                            </ProtectedRoute>
+                        }
+                    />
 
-        <Route
-          path="/admin"
-          element={
-            <AdminRoute>
-              <AdminDashboard />
-            </AdminRoute>
-          }
-        />
+                    <Route
+                        path="/seats"
+                        element={
+                            <ProtectedRoute>
+                                <SeatSelection />
+                            </ProtectedRoute>
+                        }
+                    />
 
-        <Route
-          path="/admin/stations"
-          element={
-            <AdminRoute>
-              <ManageStations />
-            </AdminRoute>
-          }
-        />
+                    <Route
+                        path="/passengers"
+                        element={
+                            <ProtectedRoute>
+                                <PassengerDetails />
+                            </ProtectedRoute>
+                        }
+                    />
 
-        <Route
-          path="/admin/trains"
-          element={
-            <AdminRoute>
-              <ManageTrains />
-            </AdminRoute>
-          }
-        />
+                    <Route
+                        path="/payment"
+                        element={
+                            <ProtectedRoute>
+                                <Payment />
+                            </ProtectedRoute>
+                        }
+                    />
 
-        <Route
-          path="/admin/seat-inventory"
-          element={
-            <AdminRoute>
-              <ManageSeatInventory />
-            </AdminRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
-    </ThemeProvider>
-  );
+                    <Route
+                        path="/my-bookings"
+                        element={
+                            <ProtectedRoute>
+                                <MyBookings />
+                            </ProtectedRoute>
+                        }
+                    />
+
+
+                    {/* =================================================
+                        ADMIN ROUTES
+                       ================================================= */}
+
+                    <Route
+                        path="/admin"
+                        element={
+                            <AdminRoute>
+                                <AdminDashboard />
+                            </AdminRoute>
+                        }
+                    />
+
+                    <Route
+                        path="/admin/stations"
+                        element={
+                            <AdminRoute>
+                                <ManageStations />
+                            </AdminRoute>
+                        }
+                    />
+
+                    <Route
+                        path="/admin/trains"
+                        element={
+                            <AdminRoute>
+                                <ManageTrains />
+                            </AdminRoute>
+                        }
+                    />
+
+                    <Route
+                        path="/admin/seat-inventory"
+                        element={
+                            <AdminRoute>
+                                <ManageSeatInventory />
+                            </AdminRoute>
+                        }
+                    />
+
+
+                    {/* =================================================
+                        FALLBACK
+                       ================================================= */}
+
+                    <Route
+                        path="*"
+                        element={<Login />}
+                    />
+
+                </Routes>
+            </BrowserRouter>
+        </ThemeProvider>
+    );
 }
 
 export default App;
