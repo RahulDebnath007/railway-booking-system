@@ -15,6 +15,7 @@ function AdminDashboard() {
 
     return (
         <div
+            className="admin-dashboard"
             style={{
                 minHeight: "100vh",
                 backgroundColor: "#f4f7fb",
@@ -91,19 +92,21 @@ function AdminDashboard() {
 
             {/* ================= MAIN ================= */}
             <main
+                className="admin-main"
                 style={{
                     maxWidth: "1200px",
                     margin: "0 auto",
                     padding: "55px 30px",
                 }}
             >
-                {/* Page heading */}
+                {/* ================= PAGE HEADING ================= */}
                 <div
                     style={{
                         marginBottom: "35px",
                     }}
                 >
                     <h1
+                        className="admin-title"
                         style={{
                             margin: 0,
                             fontSize: "42px",
@@ -115,6 +118,7 @@ function AdminDashboard() {
                     </h1>
 
                     <p
+                        className="admin-subtitle"
                         style={{
                             marginTop: "10px",
                             fontSize: "18px",
@@ -134,8 +138,9 @@ function AdminDashboard() {
                         gap: "25px",
                     }}
                 >
-                    {/* Stations */}
+                    {/* ================= STATIONS ================= */}
                     <div
+                        className="admin-card"
                         style={{
                             backgroundColor: "#ffffff",
                             borderRadius: "14px",
@@ -146,6 +151,7 @@ function AdminDashboard() {
                         }}
                     >
                         <div
+                            className="admin-card-icon"
                             style={{
                                 width: "52px",
                                 height: "52px",
@@ -171,6 +177,7 @@ function AdminDashboard() {
                         </h2>
 
                         <p
+                            className="admin-card-description"
                             style={{
                                 color: "#64748b",
                                 lineHeight: "1.6",
@@ -202,8 +209,9 @@ function AdminDashboard() {
                         </button>
                     </div>
 
-                    {/* Trains */}
+                    {/* ================= TRAINS ================= */}
                     <div
+                        className="admin-card"
                         style={{
                             backgroundColor: "#ffffff",
                             borderRadius: "14px",
@@ -214,6 +222,7 @@ function AdminDashboard() {
                         }}
                     >
                         <div
+                            className="admin-card-icon"
                             style={{
                                 width: "52px",
                                 height: "52px",
@@ -239,6 +248,7 @@ function AdminDashboard() {
                         </h2>
 
                         <p
+                            className="admin-card-description"
                             style={{
                                 color: "#64748b",
                                 lineHeight: "1.6",
@@ -270,8 +280,9 @@ function AdminDashboard() {
                         </button>
                     </div>
 
-                    {/* Seat Inventory */}
+                    {/* ================= SEAT INVENTORY ================= */}
                     <div
+                        className="admin-card"
                         style={{
                             backgroundColor: "#ffffff",
                             borderRadius: "14px",
@@ -282,6 +293,7 @@ function AdminDashboard() {
                         }}
                     >
                         <div
+                            className="admin-card-icon"
                             style={{
                                 width: "52px",
                                 height: "52px",
@@ -307,6 +319,7 @@ function AdminDashboard() {
                         </h2>
 
                         <p
+                            className="admin-card-description"
                             style={{
                                 color: "#64748b",
                                 lineHeight: "1.6",
