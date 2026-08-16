@@ -636,3 +636,210 @@ body.dark-mode .admin-card button {
 body.dark-mode .admin-card button:hover {
     background-color: #1d4ed8 !important;
 }
+
+/* =========================================================
+   ADMIN STATION MANAGEMENT - DARK MODE
+   ========================================================= */
+
+/* Page background */
+body.dark-mode .admin-page {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+/* Main page heading */
+body.dark-mode .admin-page-heading h1 {
+    color: #f8fafc !important;
+}
+
+/* Main page subtitle */
+body.dark-mode .admin-page-heading p {
+    color: #94a3b8 !important;
+}
+
+/* =========================================================
+   ADMIN HEADER
+   ========================================================= */
+
+body.dark-mode .admin-header {
+    background-color: #173f73 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .admin-header h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .admin-header p {
+    color: #dbe7f5 !important;
+}
+
+body.dark-mode .admin-back-button {
+    background-color: #ffffff !important;
+    color: #173f73 !important;
+}
+
+/* =========================================================
+   ADMIN CARDS
+   ========================================================= */
+
+body.dark-mode .admin-card {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.dark-mode .admin-card h2 {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .admin-card-description {
+    color: #cbd5e1 !important;
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+body.dark-mode .form-group label {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .form-group input {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .form-group input::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .form-group input:focus {
+    border-color: #3b82f6 !important;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+body.dark-mode .admin-primary-button {
+    background-color: #2864e8 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .admin-primary-button:hover {
+    background-color: #1d4ed8 !important;
+}
+
+body.dark-mode .admin-secondary-button {
+    background-color: #2864e8 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .admin-secondary-button:hover {
+    background-color: #1d4ed8 !important;
+}
+
+/* =========================================================
+   SUCCESS / ERROR
+   ========================================================= */
+
+body.dark-mode .admin-error {
+    background-color: #451a1a !important;
+    color: #fca5a5 !important;
+    border-color: #7f1d1d !important;
+}
+
+body.dark-mode .admin-success {
+    background-color: #052e16 !important;
+    color: #86efac !important;
+    border-color: #166534 !important;
+}
+
+/* =========================================================
+   EMPTY / LOADING
+   ========================================================= */
+
+body.dark-mode .admin-empty {
+    color: #94a3b8 !important;
+}
+
+/* =========================================================
+   STATION TABLE
+   ========================================================= */
+
+body.dark-mode .station-table-wrapper {
+    background-color: #1e293b !important;
+}
+
+body.dark-mode .station-table {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .station-table thead {
+    background-color: #0f172a !important;
+}
+
+body.dark-mode .station-table th {
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .station-table td {
+    color: #cbd5e1 !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .station-table tbody tr {
+    background-color: #1e293b !important;
+}
+
+body.dark-mode .station-table tbody tr:hover {
+    background-color: #263449 !important;
+}
+
+body.dark-mode .station-table strong {
+    color: #f8fafc !important;
+}
+
+/* Station code */
+body.dark-mode .station-code {
+    background-color: #263b5c !important;
+    color: #93c5fd !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .admin-header {
+        padding: 20px !important;
+    }
+
+    .admin-container {
+        padding: 35px 20px !important;
+    }
+
+    .admin-page-heading h1 {
+        font-size: 32px !important;
+    }
+
+    .station-form {
+        grid-template-columns: 1fr !important;
+    }
+
+    .station-list-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    .station-table-wrapper {
+        overflow-x: auto !important;
+    }
+}
