@@ -1933,9 +1933,8 @@ body.dark-mode .railbook-search-error {
     position: relative;
 
     width: 100vw;
-    max-width: none;
-    min-height: 100vh;
-    height: 100vh;
+    height: calc(100vh - 88px);
+    min-height: 700px;
 
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -1949,9 +1948,6 @@ body.dark-mode .railbook-search-error {
     background-repeat: no-repeat;
 
     overflow: hidden;
-
-    padding-top: 180px;
-    box-sizing: border-box;
 }
 .home-hero::before {
     content: "";
@@ -1984,13 +1980,10 @@ body.dark-mode .railbook-search-error {
     z-index: 2;
 
     width: 100%;
-    max-width: 1200px;
-
     text-align: center;
 
-    margin: 60px auto 0;
+    margin-top: 190px;
 }
-
 
 .home-hero-content h1 {
     margin: 0;
@@ -2001,8 +1994,7 @@ body.dark-mode .railbook-search-error {
     font-weight: 800;
     line-height: 1.1;
 
-    text-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.65);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 .home-hero-content p {
@@ -2011,19 +2003,40 @@ body.dark-mode .railbook-search-error {
     color: #e5e7eb;
 
     font-size: 20px;
-    font-weight: 400;
 
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 /* =========================================
    SEARCH CARD POSITION
 ========================================= */
 
 .search-card {
-    position: relative;
+    position: absolute;
+
     z-index: 5;
-    margin: -110px auto 0;
+
+    left: 50%;
+    bottom: 45px;
+
+    transform: translateX(-50%);
+
+    width: min(1060px, calc(100% - 48px));
+
+    box-sizing: border-box;
+
+    padding: 32px;
+
+    background: rgba(20, 32, 52, 0.94);
+
+    border: 1px solid rgba(148, 163, 184, 0.28);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 8px 20px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(8px);
 }
 
 /* =========================================
