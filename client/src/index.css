@@ -2013,7 +2013,7 @@ body.dark-mode .railbook-search-error {
 .search-card {
     position: relative;
     z-index: 5;
-    margin: -110px auto 0;
+    margin: -150px auto 0;
 }
 
 /* =========================================
