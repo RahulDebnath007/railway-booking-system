@@ -22,26 +22,39 @@ const app = express();
 
 const allowedOrigins = [
     "http://localhost:5173",
+    "https://railway-booking-system-flame.vercel.app",
     process.env.FRONTEND_URL,
 ].filter(Boolean);
 
 app.use(
     cors({
         origin: function (origin, callback) {
-            // Allow requests without an Origin header
-            // such as Postman/server-to-server requests.
+            // Allow requests without Origin
+            // e.g. Postman / server-to-server
             if (!origin) {
                 return callback(null, true);
             }
 
+            // Allow explicitly configured origins
             if (allowedOrigins.includes(origin)) {
                 return callback(null, true);
             }
+
+            // Allow Vercel deployment/preview URLs
+            if (
+                origin.endsWith(".vercel.app") &&
+                origin.includes("railway-booking-system")
+            ) {
+                return callback(null, true);
+            }
+
+            console.log("Blocked CORS origin:", origin);
 
             return callback(
                 new Error("Not allowed by CORS")
             );
         },
+
         credentials: true,
     })
 );
