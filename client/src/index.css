@@ -1924,3 +1924,125 @@ body.dark-mode .railbook-search-error {
     outline: 3px solid rgba(37, 99, 235, 0.30);
     outline-offset: 2px;
 }
+
+/* =========================================
+   HOME TRAIN HERO
+========================================= */
+
+.home-hero {
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+/* Dark overlay */
+
+.home-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(15, 23, 42, 0.78),
+        rgba(15, 23, 42, 0.45),
+        rgba(15, 23, 42, 0.25)
+    );
+}
+
+/* Hero text */
+
+.home-hero-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.home-hero-content h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(38px, 5vw, 64px);
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.home-hero-content p {
+    margin-top: 20px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================
+   SEARCH CARD POSITION
+========================================= */
+
+.home-hero + .search-card {
+    position: relative;
+    z-index: 5;
+
+    margin-top: -70px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .home-hero {
+        min-height: 330px;
+
+        background-position: 65% center;
+    }
+
+    .home-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .home-hero-content p {
+        font-size: 16px;
+    }
+
+    .home-hero + .search-card {
+        margin-top: -40px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .home-hero {
+        min-height: 280px;
+    }
+
+    .home-hero-content h1 {
+        font-size: 30px;
+    }
+
+    .home-hero-content p {
+        font-size: 15px;
+    }
+}
