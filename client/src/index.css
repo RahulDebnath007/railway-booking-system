@@ -1932,7 +1932,8 @@ body.dark-mode .railbook-search-error {
 .home-hero {
     position: relative;
     width: 100%;
-    min-height: 420px;
+    min-height: 100vh;
+    height: 100vh;
 
     display: flex;
     align-items: center;
