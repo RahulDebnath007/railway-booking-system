@@ -1932,29 +1932,37 @@ body.dark-mode .railbook-search-error {
 .home-hero {
     position: relative;
 
-    /* Force full browser width */
     width: 100vw;
     max-width: none;
+    min-height: 100vh;
+    height: 100vh;
 
-    /* Break out of any centered/max-width parent */
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 
-    /* Full viewport height */
-    min-height: calc(100vh - 76px);
-    height: calc(100vh - 76px);
-
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     overflow: hidden;
-}
 
+    padding-top: 180px;
+    box-sizing: border-box;
+}
+.home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(3, 10, 22, 0.62);
+
+    z-index: 1;
+    pointer-events: none;
+}
 /* Dark overlay */
 
 .home-hero-overlay {
@@ -1975,46 +1983,48 @@ body.dark-mode .railbook-search-error {
     position: relative;
     z-index: 2;
 
+    width: 100%;
+    max-width: 1200px;
+
     text-align: center;
 
-    padding: 40px 20px;
+    margin: 60px auto 0;
 }
+
 
 .home-hero-content h1 {
     margin: 0;
 
     color: #ffffff;
 
-    font-size: clamp(38px, 5vw, 64px);
+    font-size: clamp(48px, 5vw, 76px);
     font-weight: 800;
-
     line-height: 1.1;
 
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.65);
 }
 
 .home-hero-content p {
-    margin-top: 20px;
+    margin-top: 24px;
 
-    color: #ffffff;
+    color: #e5e7eb;
 
-    font-size: 19px;
+    font-size: 20px;
+    font-weight: 400;
 
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
 }
-
-
 /* =========================================
    SEARCH CARD POSITION
 ========================================= */
 
-.home-hero + .search-card {
+.search-card {
     position: relative;
     z-index: 5;
-
-    margin-top: -70px;
+    margin: -110px auto 0;
 }
-
 
 /* =========================================
    MOBILE
