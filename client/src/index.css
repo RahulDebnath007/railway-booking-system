@@ -2010,11 +2010,7 @@ body.dark-mode .railbook-search-error {
    SEARCH CARD POSITION
 ========================================= */
 
-.search-card {
-    position: relative;
-    z-index: 5;
-    margin: -150px auto 0;
-}
+
 
 /* =========================================
    MOBILE
@@ -2177,7 +2173,7 @@ body.dark-mode .railbook-search-error {
 
     width: min(1100px, calc(100% - 60px));
 
-    margin: -20px auto 80px;
+    margin: -110px auto 80px;
 
     padding: 32px;
 
