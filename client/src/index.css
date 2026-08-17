@@ -1935,7 +1935,7 @@ body.dark-mode .railbook-search-error {
     width: 100vw;
     height: calc(125vh - 177px);
     min-height: 700px;
-
+    margin-top: -4%;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 
