@@ -1931,12 +1931,17 @@ body.dark-mode .railbook-search-error {
 
 .home-hero {
     position: relative;
-    width: 100%;
-    min-height: 680px;
+
+    width: 100vw;
+    height: calc(100vh - 88px);
+    min-height: 700px;
+
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 
     background-size: cover;
     background-position: center;
@@ -2005,7 +2010,11 @@ body.dark-mode .railbook-search-error {
    SEARCH CARD POSITION
 ========================================= */
 
-
+.search-card {
+    position: relative;
+    z-index: 5;
+    margin: -150px auto 0;
+}
 
 /* =========================================
    MOBILE
@@ -2168,7 +2177,7 @@ body.dark-mode .railbook-search-error {
 
     width: min(1100px, calc(100% - 60px));
 
-    margin: -110px auto 80px;
+    margin: -20px auto 80px;
 
     padding: 32px;
 
@@ -2538,24 +2547,4 @@ body:not(.dark-mode) .home-background .search-card input[type="date"] {
         padding: 20px 16px;
     }
 
-}
-
-/* =========================================================
-   FINAL HOME SEARCH CARD POSITION
-   ========================================================= */
-
-.home-background {
-    position: relative;
-}
-
-.home-background .search-card {
-    position: relative !important;
-    z-index: 20 !important;
-
-    /* Move the card upward */
-    margin-top: -110px !important;
-    margin-bottom: 80px;
-
-    /* Keep it visible above the hero background */
-    transform: translateY(0);
 }
