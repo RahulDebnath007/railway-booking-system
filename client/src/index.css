@@ -2055,6 +2055,7 @@ body.dark-mode .railbook-search-error {
 
     .home-hero {
         min-height: 280px;
+        margin-top: -20px;
     }
 
     .home-hero-content h1 {
