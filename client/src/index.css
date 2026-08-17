@@ -22,12 +22,25 @@ button {
 /* ---------- Navbar ---------- */
 
 .navbar {
-    background: #123b6d;
-    color: white;
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 88px !important;
+
+    z-index: 9999 !important;
+
+    background: rgba(15, 23, 42, 0.30) !important;
+
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+
+    box-sizing: border-box !important;
 }
 
 .navbar-brand {
