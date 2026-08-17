@@ -1293,3 +1293,634 @@ body.dark-mode .station-code {
         font-size: 34px;
     }
 }
+
+
+/* =========================================================
+   RAILBOOK HOME PAGE — FINAL UI OVERRIDES
+   ========================================================= */
+
+.railbook-home {
+    min-height: 100vh;
+    width: 100%;
+    background: #f4f7fb;
+    color: #172033;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.railbook-navbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    color: #111827;
+    border-bottom: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 20;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.railbook-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 27px;
+    font-weight: 800;
+    color: #101828;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.railbook-logo {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.railbook-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+.railbook-nav-button {
+    min-height: 48px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid #d6deea;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease,
+        border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.railbook-nav-button:hover {
+    background: #f1f5f9;
+    border-color: #b9c6d8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.railbook-nav-button:active {
+    transform: translateY(0);
+}
+
+.nav-button-icon {
+    font-size: 17px;
+}
+
+.railbook-main {
+    width: 100%;
+    min-height: calc(100vh - 76px);
+    position: relative;
+    overflow: hidden;
+}
+
+.railbook-hero {
+    position: relative;
+    width: 100%;
+    padding: 72px 24px 45px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.railbook-hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.railbook-hero h1 {
+    margin: 0;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.08;
+    font-weight: 850;
+    letter-spacing: -2px;
+    color: #111827;
+}
+
+.railbook-hero h1 span {
+    color: #2563eb;
+}
+
+.railbook-hero p {
+    margin: 22px auto 0;
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+.hero-line {
+    width: 80px;
+    height: 4px;
+    margin: 24px auto 0;
+    border-radius: 999px;
+    background: #2563eb;
+}
+
+.railway-background {
+    position: absolute;
+    font-size: 110px;
+    opacity: 0.035;
+    pointer-events: none;
+    user-select: none;
+}
+
+.railway-background-left {
+    left: 5%;
+    top: 25px;
+    transform: rotate(-8deg);
+}
+
+.railway-background-right {
+    right: 5%;
+    bottom: -10px;
+    transform: rotate(8deg);
+}
+
+.railbook-search-section {
+    width: 100%;
+    padding: 10px 24px 90px;
+    box-sizing: border-box;
+}
+
+.railbook-search-card {
+    position: relative;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding: 34px 38px 38px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.10),
+        0 4px 12px rgba(15, 23, 42, 0.04);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.railbook-search-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+}
+
+.search-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.search-heading-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #eff6ff;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.search-card-heading h2 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #172033;
+}
+
+.railbook-search-form {
+    width: 100%;
+}
+
+.railbook-form-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr)
+        minmax(0, 0.9fr) minmax(0, 0.9fr);
+    gap: 20px;
+    align-items: end;
+}
+
+.railbook-form-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.railbook-form-group label {
+    font-size: 15px;
+    font-weight: 750;
+    color: #334155;
+}
+
+.railbook-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.railbook-input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.railbook-input-wrapper input,
+.railbook-input-wrapper select {
+    width: 100%;
+    min-width: 0;
+    height: 56px;
+    padding: 0 15px 0 44px;
+    border: 1px solid #cbd5e1;
+    border-radius: 11px;
+    background: #f8fafc;
+    color: #172033;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.railbook-input-wrapper input:hover,
+.railbook-input-wrapper select:hover {
+    border-color: #94a3b8;
+}
+
+.railbook-input-wrapper input:focus,
+.railbook-input-wrapper select:focus {
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.railbook-input-wrapper select {
+    cursor: pointer;
+}
+
+.railbook-input-wrapper input[type="date"] {
+    cursor: pointer;
+}
+
+.railbook-search-error {
+    margin: 18px 0 0;
+    padding: 12px 15px;
+    border-radius: 9px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.railbook-search-button {
+    margin-top: 28px;
+    min-height: 56px;
+    padding: 0 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 750;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.railbook-search-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.30);
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.railbook-search-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.railbook-search-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.search-button-icon {
+    font-size: 18px;
+}
+
+.search-button-arrow {
+    font-size: 20px;
+    line-height: 1;
+    margin-left: 3px;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+body.dark-mode .railbook-home {
+    background: #0b1220;
+    color: #f8fafc;
+}
+
+body.dark-mode .railbook-navbar {
+    background: #111a2c;
+    color: #f8fafc;
+    border-bottom-color: #24324a;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+body.dark-mode .railbook-brand {
+    color: #f8fafc;
+}
+
+body.dark-mode .railbook-nav-button {
+    background: #ffffff;
+    color: #111827;
+    border-color: #dbe3ef;
+}
+
+body.dark-mode .railbook-nav-button:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
+
+body.dark-mode .railbook-hero h1 {
+    color: #f8fafc;
+}
+
+body.dark-mode .railbook-hero h1 span {
+    color: #60a5fa;
+}
+
+body.dark-mode .railbook-hero p {
+    color: #94a3b8;
+}
+
+body.dark-mode .hero-line {
+    background: #3b82f6;
+}
+
+body.dark-mode .railway-background {
+    opacity: 0.045;
+}
+
+body.dark-mode .railbook-search-card {
+    background: #172236;
+    border-color: #2a3a55;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28),
+        0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+body.dark-mode .search-card-heading h2 {
+    color: #f8fafc;
+}
+
+body.dark-mode .search-heading-icon {
+    background: #1e3a68;
+}
+
+body.dark-mode .railbook-form-group label {
+    color: #e2e8f0;
+}
+
+body.dark-mode .railbook-input-wrapper input,
+body.dark-mode .railbook-input-wrapper select {
+    background: #0f1829;
+    color: #f8fafc;
+    border-color: #3b4d68;
+}
+
+body.dark-mode .railbook-input-wrapper input:hover,
+body.dark-mode .railbook-input-wrapper select:hover {
+    border-color: #64748b;
+}
+
+body.dark-mode .railbook-input-wrapper input:focus,
+body.dark-mode .railbook-input-wrapper select:focus {
+    background: #111d31;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.14);
+}
+
+body.dark-mode .railbook-input-wrapper select option {
+    background: #0f1829;
+    color: #f8fafc;
+}
+
+body.dark-mode .railbook-search-error {
+    background: #3b1818;
+    border-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .railbook-navbar {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .railbook-form-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .railbook-search-card {
+        padding: 32px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+    .railbook-navbar {
+        min-height: auto;
+        padding: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .railbook-brand {
+        justify-content: center;
+        font-size: 26px;
+    }
+
+    .railbook-navbar-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .railbook-nav-button {
+        width: 100%;
+        min-height: 46px;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    .railbook-main {
+        min-height: calc(100vh - 150px);
+    }
+
+    .railbook-hero {
+        padding: 52px 20px 32px;
+    }
+
+    .railbook-hero h1 {
+        font-size: 40px;
+        letter-spacing: -1.2px;
+    }
+
+    .railbook-hero p {
+        margin-top: 18px;
+        font-size: 16px;
+    }
+
+    .hero-line {
+        width: 65px;
+        margin-top: 20px;
+    }
+
+    .railbook-search-section {
+        padding: 5px 16px 60px;
+    }
+
+    .railbook-search-card {
+        padding: 28px 20px 25px;
+        border-radius: 17px;
+    }
+
+    .search-card-heading {
+        margin-bottom: 24px;
+    }
+
+    .search-card-heading h2 {
+        font-size: 25px;
+    }
+
+    .railbook-form-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .railbook-input-wrapper input,
+    .railbook-input-wrapper select {
+        height: 54px;
+    }
+
+    .railbook-search-button {
+        width: 100%;
+        margin-top: 24px;
+    }
+
+    .railway-background {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+    .railbook-navbar {
+        padding: 14px 12px;
+    }
+
+    .railbook-brand {
+        font-size: 24px;
+    }
+
+    .railbook-navbar-actions {
+        gap: 7px;
+    }
+
+    .railbook-nav-button {
+        font-size: 13px;
+        min-height: 44px;
+    }
+
+    .nav-button-icon {
+        font-size: 15px;
+    }
+
+    .railbook-hero {
+        padding: 42px 15px 28px;
+    }
+
+    .railbook-hero h1 {
+        font-size: 34px;
+    }
+
+    .railbook-hero p {
+        font-size: 15px;
+    }
+
+    .railbook-search-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .railbook-search-card {
+        padding: 24px 16px;
+    }
+
+    .search-card-heading h2 {
+        font-size: 23px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / FOCUS
+   ========================================================= */
+
+.railbook-nav-button:focus-visible,
+.railbook-search-button:focus-visible,
+.railbook-input-wrapper input:focus-visible,
+.railbook-input-wrapper select:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.30);
+    outline-offset: 2px;
+}

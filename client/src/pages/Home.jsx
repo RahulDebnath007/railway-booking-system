@@ -34,9 +34,7 @@ function Home() {
                 setLoadingStations(true);
                 setError("");
 
-                const response = await api.get(
-                    "/stations"
-                );
+                const response = await api.get("/stations");
 
                 setStations(
                     response.data.stations || []
@@ -98,21 +96,33 @@ function Home() {
     };
 
     return (
-        <div>
-            {/* ================= NAVBAR ================= */}
+        <div className="railbook-home">
 
-            <nav className="navbar">
+            {/* =========================================
+                NAVBAR
+            ========================================= */}
 
-                <div className="navbar-brand">
-                    RailBook
+            <nav className="navbar railbook-navbar">
+
+                {/* Brand */}
+                <div
+                    className="navbar-brand railbook-brand"
+                    onClick={() => navigate("/")}
+                >
+                    <span className="railbook-logo">
+                        🚆
+                    </span>
+
+                    <span>RailBook</span>
                 </div>
 
-                <div className="navbar-actions">
+                {/* Navbar Actions */}
+                <div className="navbar-actions railbook-navbar-actions">
 
-                    {/* Dark Mode */}
-
+                    {/* Theme Toggle */}
                     <button
-                        className="theme-toggle"
+                        type="button"
+                        className="theme-toggle railbook-nav-button"
                         onClick={toggleDarkMode}
                         title={
                             darkMode
@@ -120,271 +130,390 @@ function Home() {
                                 : "Switch to dark mode"
                         }
                     >
-                        {darkMode
-                            ? "☀️ Light"
-                            : "🌙 Dark"}
+                        <span className="nav-button-icon">
+                            {darkMode ? "☀️" : "🌙"}
+                        </span>
+
+                        <span>
+                            {darkMode ? "Light" : "Dark"}
+                        </span>
                     </button>
 
                     {/* Admin */}
-
                     {user?.role === "admin" && (
                         <button
+                            type="button"
+                            className="railbook-nav-button"
                             onClick={() =>
                                 navigate("/admin")
                             }
                         >
-                            Admin
+                            <span className="nav-button-icon">
+                                ⚙️
+                            </span>
+
+                            <span>Admin</span>
                         </button>
                     )}
 
                     {/* My Bookings */}
-
                     <button
+                        type="button"
+                        className="railbook-nav-button"
                         onClick={() =>
                             navigate("/my-bookings")
                         }
                     >
-                        My Bookings
+                        <span className="nav-button-icon">
+                            🎟️
+                        </span>
+
+                        <span>My Bookings</span>
                     </button>
 
                     {/* Logout */}
-
                     <button
+                        type="button"
+                        className="railbook-nav-button"
                         onClick={handleLogout}
                     >
-                        Logout
+                        <span className="nav-button-icon">
+                            ↪
+                        </span>
+
+                        <span>Logout</span>
                     </button>
 
                 </div>
-
             </nav>
 
-            {/* ================= MAIN ================= */}
 
-            <main className="page-container">
+            {/* =========================================
+                HERO SECTION
+            ========================================= */}
 
-                {/* Hero */}
+            <main className="railbook-main">
 
-                <div className="hero">
+                <section className="railbook-hero">
 
-                    <h1>
-                        Book Your Train Journey
-                    </h1>
+                    <div className="railway-background railway-background-left">
+                        🚆
+                    </div>
 
-                    <p>
-                        Search trains, select your
-                        seat and book your journey.
-                    </p>
+                    <div className="railway-background railway-background-right">
+                        🌉
+                    </div>
 
-                </div>
+                    <div className="railbook-hero-content">
 
-                {/* Search Card */}
+                        <h1>
+                            Book Your{" "}
+                            <span>Train Journey</span>
+                        </h1>
 
-                <div className="card search-card">
+                        <div className="hero-line"></div>
 
-                    <h2>
-                        Search Trains
-                    </h2>
+                        <p>
+                            Search trains, select your seat
+                            and book your journey.
+                        </p>
 
-                    <form
-                        onSubmit={handleSearch}
-                    >
+                    </div>
 
-                        <div className="form-grid">
+                </section>
 
-                            {/* ================= FROM ================= */}
 
-                            <div className="form-group">
+                {/* =========================================
+                    SEARCH SECTION
+                ========================================= */}
 
-                                <label>
-                                    From
-                                </label>
+                <section className="railbook-search-section">
 
-                                <select
-                                    value={from}
-                                    onChange={(e) =>
-                                        setFrom(
-                                            e.target.value
-                                        )
-                                    }
-                                    disabled={
-                                        loadingStations
-                                    }
-                                >
+                    <div className="railbook-search-card">
 
-                                    <option value="">
-                                        {loadingStations
-                                            ? "Loading stations..."
-                                            : "Select departure station"}
-                                    </option>
+                        {/* Search Header */}
 
-                                    {stations.map(
-                                        (station) => (
-                                            <option
-                                                key={
-                                                    station._id ||
-                                                    station.code
-                                                }
-                                                value={
-                                                    station.code
-                                                }
-                                            >
-                                                {station.name} (
-                                                {station.code}) -{" "}
-                                                {station.city}
-                                            </option>
-                                        )
-                                    )}
+                        <div className="search-card-heading">
 
-                                </select>
-
+                            <div className="search-heading-icon">
+                                🔎
                             </div>
 
-                            {/* ================= TO ================= */}
-
-                            <div className="form-group">
-
-                                <label>
-                                    To
-                                </label>
-
-                                <select
-                                    value={to}
-                                    onChange={(e) =>
-                                        setTo(
-                                            e.target.value
-                                        )
-                                    }
-                                    disabled={
-                                        loadingStations
-                                    }
-                                >
-
-                                    <option value="">
-                                        {loadingStations
-                                            ? "Loading stations..."
-                                            : "Select destination station"}
-                                    </option>
-
-                                    {stations.map(
-                                        (station) => (
-                                            <option
-                                                key={
-                                                    station._id ||
-                                                    station.code
-                                                }
-                                                value={
-                                                    station.code
-                                                }
-                                            >
-                                                {station.name} (
-                                                {station.code}) -{" "}
-                                                {station.city}
-                                            </option>
-                                        )
-                                    )}
-
-                                </select>
-
-                            </div>
-
-                            {/* ================= DATE ================= */}
-
-                            <div className="form-group">
-
-                                <label>
-                                    Journey Date
-                                </label>
-
-                                <input
-                                    type="date"
-                                    value={date}
-                                    onChange={(e) =>
-                                        setDate(
-                                            e.target.value
-                                        )
-                                    }
-                                />
-
-                            </div>
-
-                            {/* ================= CLASS ================= */}
-
-                            <div className="form-group">
-
-                                <label>
-                                    Class
-                                </label>
-
-                                <select
-                                    value={classCode}
-                                    onChange={(e) =>
-                                        setClassCode(
-                                            e.target.value
-                                        )
-                                    }
-                                >
-
-                                    <option value="1A">
-                                        First AC (1A)
-                                    </option>
-
-                                    <option value="2A">
-                                        Second AC (2A)
-                                    </option>
-
-                                    <option value="3A">
-                                        Third AC (3A)
-                                    </option>
-
-                                    <option value="SL">
-                                        Sleeper (SL)
-                                    </option>
-
-                                    <option value="CC">
-                                        Chair Car (CC)
-                                    </option>
-
-                                    <option value="2S">
-                                        Second Sitting (2S)
-                                    </option>
-
-                                </select>
-
-                            </div>
+                            <h2>
+                                Search Trains
+                            </h2>
 
                         </div>
 
-                        {/* API Error */}
 
-                        {error && (
-                            <p
-                                style={{
-                                    color: "#c62828",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                {error}
-                            </p>
-                        )}
+                        {/* Search Form */}
 
-                        <br />
-
-                        <button
-                            type="submit"
-                            className="primary-button"
-                            disabled={
-                                loadingStations
-                            }
+                        <form
+                            onSubmit={handleSearch}
+                            className="railbook-search-form"
                         >
-                            {loadingStations
-                                ? "Loading Stations..."
-                                : "Search Trains"}
-                        </button>
 
-                    </form>
+                            <div className="railbook-form-grid">
 
-                </div>
+                                {/* =================================
+                                    FROM
+                                ================================= */}
+
+                                <div className="railbook-form-group">
+
+                                    <label htmlFor="from">
+                                        From
+                                    </label>
+
+                                    <div className="railbook-input-wrapper">
+
+                                        <span className="railbook-input-icon">
+                                            📍
+                                        </span>
+
+                                        <select
+                                            id="from"
+                                            value={from}
+                                            onChange={(e) =>
+                                                setFrom(
+                                                    e.target.value
+                                                )
+                                            }
+                                            disabled={
+                                                loadingStations
+                                            }
+                                        >
+
+                                            <option value="">
+                                                {loadingStations
+                                                    ? "Loading stations..."
+                                                    : "Select departure station"}
+                                            </option>
+
+                                            {stations.map(
+                                                (station) => (
+                                                    <option
+                                                        key={
+                                                            station._id ||
+                                                            station.code
+                                                        }
+                                                        value={
+                                                            station.code
+                                                        }
+                                                    >
+                                                        {station.name} (
+                                                        {
+                                                            station.code
+                                                        }) -{" "}
+                                                        {
+                                                            station.city
+                                                        }
+                                                    </option>
+                                                )
+                                            )}
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+
+                                {/* =================================
+                                    TO
+                                ================================= */}
+
+                                <div className="railbook-form-group">
+
+                                    <label htmlFor="to">
+                                        To
+                                    </label>
+
+                                    <div className="railbook-input-wrapper">
+
+                                        <span className="railbook-input-icon">
+                                            📍
+                                        </span>
+
+                                        <select
+                                            id="to"
+                                            value={to}
+                                            onChange={(e) =>
+                                                setTo(
+                                                    e.target.value
+                                                )
+                                            }
+                                            disabled={
+                                                loadingStations
+                                            }
+                                        >
+
+                                            <option value="">
+                                                {loadingStations
+                                                    ? "Loading stations..."
+                                                    : "Select destination station"}
+                                            </option>
+
+                                            {stations.map(
+                                                (station) => (
+                                                    <option
+                                                        key={
+                                                            station._id ||
+                                                            station.code
+                                                        }
+                                                        value={
+                                                            station.code
+                                                        }
+                                                    >
+                                                        {station.name} (
+                                                        {
+                                                            station.code
+                                                        }) -{" "}
+                                                        {
+                                                            station.city
+                                                        }
+                                                    </option>
+                                                )
+                                            )}
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+
+                                {/* =================================
+                                    JOURNEY DATE
+                                ================================= */}
+
+                                <div className="railbook-form-group">
+
+                                    <label htmlFor="journey-date">
+                                        Journey Date
+                                    </label>
+
+                                    <div className="railbook-input-wrapper">
+
+                                        <span className="railbook-input-icon">
+                                            📅
+                                        </span>
+
+                                        <input
+                                            id="journey-date"
+                                            type="date"
+                                            value={date}
+                                            onChange={(e) =>
+                                                setDate(
+                                                    e.target.value
+                                                )
+                                            }
+                                        />
+
+                                    </div>
+
+                                </div>
+
+
+                                {/* =================================
+                                    CLASS
+                                ================================= */}
+
+                                <div className="railbook-form-group">
+
+                                    <label htmlFor="class">
+                                        Class
+                                    </label>
+
+                                    <div className="railbook-input-wrapper">
+
+                                        <span className="railbook-input-icon">
+                                            💺
+                                        </span>
+
+                                        <select
+                                            id="class"
+                                            value={classCode}
+                                            onChange={(e) =>
+                                                setClassCode(
+                                                    e.target.value
+                                                )
+                                            }
+                                        >
+
+                                            <option value="1A">
+                                                First AC (1A)
+                                            </option>
+
+                                            <option value="2A">
+                                                Second AC (2A)
+                                            </option>
+
+                                            <option value="3A">
+                                                Third AC (3A)
+                                            </option>
+
+                                            <option value="SL">
+                                                Sleeper (SL)
+                                            </option>
+
+                                            <option value="CC">
+                                                Chair Car (CC)
+                                            </option>
+
+                                            <option value="2S">
+                                                Second Sitting (2S)
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            {/* API Error */}
+
+                            {error && (
+                                <p className="railbook-search-error">
+                                    {error}
+                                </p>
+                            )}
+
+
+                            {/* Search Button */}
+
+                            <button
+                                type="submit"
+                                className="railbook-search-button"
+                                disabled={loadingStations}
+                            >
+
+                                <span className="search-button-icon">
+                                    🚆
+                                </span>
+
+                                <span>
+                                    {loadingStations
+                                        ? "Loading Stations..."
+                                        : "Search Trains"}
+                                </span>
+
+                                {!loadingStations && (
+                                    <span className="search-button-arrow">
+                                        →
+                                    </span>
+                                )}
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </section>
 
             </main>
 
