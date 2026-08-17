@@ -124,7 +124,7 @@ function Auth() {
     try {
       setLoading(true);
 
-      const response = await api.post("/auth/signup", {
+      const response = await api.post("/auth/register", {
         name,
         email,
         phone,
