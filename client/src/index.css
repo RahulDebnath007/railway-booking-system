@@ -562,6 +562,9 @@ body {
 
     .navbar {
         padding: 14px 12px;
+         position: sticky;  /* Activates sticky positioning */
+  top: 0;            /* Sticks the navbar exactly at the top of the viewport */
+  z-index: 1000;  
     }
 
     .navbar-brand {
