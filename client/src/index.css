@@ -1543,12 +1543,12 @@ body.dark-mode .search-card h2::before {
 
 body.dark-mode .search-card .form-grid {
     grid-template-columns:
-        1.25fr
-        1.25fr
-        0.9fr
-        0.9fr;
+        1.2fr
+        1.2fr
+        0.8fr
+        0.8fr;
 
-    gap: 18px;
+    gap: 20px;
 }
 
 /* ---------- FORM LABELS ---------- */
@@ -1925,5 +1925,36 @@ body:not(.dark-mode) .search-card .form-group select:focus {
     body.dark-mode .search-card,
     body:not(.dark-mode) .search-card {
         padding: 21px 15px;
+    }
+}
+
+/* =========================================================
+   FINAL THEME GRID SYNC
+   Light mode and dark mode use the EXACT SAME SEARCH GRID.
+   Only colors/visual styling differ.
+   ========================================================= */
+
+body:not(.dark-mode) .search-card .form-grid,
+body.dark-mode .search-card .form-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 0.8fr 0.8fr;
+    gap: 20px;
+    width: 100%;
+    align-items: end;
+}
+
+@media (max-width: 900px) {
+    body:not(.dark-mode) .search-card .form-grid,
+    body.dark-mode .search-card .form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    body:not(.dark-mode) .search-card .form-grid,
+    body.dark-mode .search-card .form-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
     }
 }
