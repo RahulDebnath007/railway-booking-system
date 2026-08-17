@@ -2037,7 +2037,7 @@ body.dark-mode .railbook-search-error {
     }
 
     .home-hero + .search-card {
-        margin-top: -40px;
+        margin-top: -372px;
     }
 }
 
@@ -2474,6 +2474,7 @@ body:not(.dark-mode) .home-background .search-card input[type="date"] {
             70px
             20px
             60px;
+        margin-top: 9px;    
     }
 
 
