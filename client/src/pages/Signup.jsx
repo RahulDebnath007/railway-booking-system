@@ -3,334 +3,221 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 function Signup() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: "",
-        phone: "",
-    });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+  });
 
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-        setFormData((current) => ({
-            ...current,
-            [name]: value,
-        }));
-    };
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        setError("");
-        setSuccess("");
+    setError("");
+    setSuccess("");
 
-        if (
-            !formData.name.trim() ||
-            !formData.email.trim() ||
-            !formData.password.trim()
-        ) {
-            setError(
-                "Name, email and password are required."
-            );
-            return;
-        }
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.password.trim()
+    ) {
+      setError(
+        "Name, email and password are required."
+      );
+      return;
+    }
 
-        if (formData.password.length < 6) {
-            setError(
-                "Password must be at least 6 characters."
-            );
-            return;
-        }
+    if (formData.password.length < 6) {
+      setError(
+        "Password must be at least 6 characters."
+      );
+      return;
+    }
 
-        try {
-            setLoading(true);
+    try {
+      setLoading(true);
 
-            await api.post(
-                "/auth/register",
-                formData
-            );
+      await api.post("/auth/register", formData);
 
-            setSuccess(
-                "Account created successfully. Redirecting to login..."
-            );
+      setSuccess(
+        "Account created successfully. Redirecting to login..."
+      );
 
-            setTimeout(() => {
-                navigate("/login");
-            }, 1200);
-        } catch (error) {
-            console.error(
-                "Signup error:",
-                error
-            );
+      setTimeout(() => {
+        navigate("/login");
+      }, 1200);
+    } catch (error) {
+      console.error("Signup error:", error);
 
-            setError(
-                error.response?.data?.message ||
-                    "Unable to create account."
-            );
-        } finally {
-            setLoading(false);
-        }
-    };
+      setError(
+        error.response?.data?.message ||
+          "Unable to create account."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return (
-        <div>
-            {/* Navbar */}
-            <nav className="navbar">
-                <div className="navbar-brand">
-                    RailBook
-                </div>
+  return (
+    <div className="auth-page">
+      <div className="auth-container auth-signup-container">
 
-                <div className="navbar-actions">
-                    <button
-                        onClick={() =>
-                            navigate("/login")
-                        }
-                    >
-                        Login
-                    </button>
-                </div>
-            </nav>
+        {/* LEFT PANEL */}
+        <div className="auth-welcome-panel">
+          <div className="auth-welcome-content">
+            <div className="auth-logo">🚆</div>
 
-            {/* Signup Page */}
-            <main className="page-container">
-                <div
-                    style={{
-                        maxWidth: "520px",
-                        margin: "60px auto",
-                    }}
-                >
-                    {/* Header */}
-                    <div
-                        className="hero"
-                        style={{
-                            textAlign: "center",
-                        }}
-                    >
-                        <h1>
-                            Create Your Account
-                        </h1>
+            <h1>Welcome!</h1>
 
-                        <p>
-                            Join RailBook and book
-                            your train journeys
-                            easily.
-                        </p>
-                    </div>
+            <p>Already have an account?</p>
 
-                    {/* Signup Card */}
-                    <div className="card">
-                        <form
-                            onSubmit={handleSubmit}
-                        >
-                            {/* Name */}
-                            <div className="form-group">
-                                <label>
-                                    Full Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={
-                                        formData.name
-                                    }
-                                    onChange={
-                                        handleChange
-                                    }
-                                    placeholder="Enter your full name"
-                                    autoComplete="name"
-                                />
-                            </div>
-
-                            {/* Email */}
-                            <div
-                                className="form-group"
-                                style={{
-                                    marginTop: "20px",
-                                }}
-                            >
-                                <label>
-                                    Email Address
-                                </label>
-
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={
-                                        formData.email
-                                    }
-                                    onChange={
-                                        handleChange
-                                    }
-                                    placeholder="Enter your email"
-                                    autoComplete="email"
-                                />
-                            </div>
-
-                            {/* Password */}
-                            <div
-                                className="form-group"
-                                style={{
-                                    marginTop: "20px",
-                                }}
-                            >
-                                <label>
-                                    Password
-                                </label>
-
-                                <input
-                                    type="password"
-                                    name="password"
-                                    value={
-                                        formData.password
-                                    }
-                                    onChange={
-                                        handleChange
-                                    }
-                                    placeholder="Create a password"
-                                    autoComplete="new-password"
-                                />
-
-                                <small
-                                    style={{
-                                        display:
-                                            "block",
-                                        marginTop:
-                                            "7px",
-                                        color:
-                                            "#64748b",
-                                    }}
-                                >
-                                    Password must
-                                    contain at least
-                                    6 characters.
-                                </small>
-                            </div>
-
-                            {/* Phone */}
-                            <div
-                                className="form-group"
-                                style={{
-                                    marginTop: "20px",
-                                }}
-                            >
-                                <label>
-                                    Phone Number
-                                </label>
-
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    value={
-                                        formData.phone
-                                    }
-                                    onChange={
-                                        handleChange
-                                    }
-                                    placeholder="Enter your phone number"
-                                    autoComplete="tel"
-                                />
-                            </div>
-
-                            {/* Error */}
-                            {error && (
-                                <div
-                                    className="error-message"
-                                    style={{
-                                        marginTop:
-                                            "20px",
-                                    }}
-                                >
-                                    {error}
-                                </div>
-                            )}
-
-                            {/* Success */}
-                            {success && (
-                                <div
-                                    style={{
-                                        marginTop:
-                                            "20px",
-                                        padding:
-                                            "12px 16px",
-                                        borderRadius:
-                                            "8px",
-                                        background:
-                                            "#dcfce7",
-                                        color:
-                                            "#166534",
-                                        fontWeight:
-                                            "600",
-                                    }}
-                                >
-                                    {success}
-                                </div>
-                            )}
-
-                            {/* Signup Button */}
-                            <button
-                                type="submit"
-                                className="primary-button"
-                                disabled={loading}
-                                style={{
-                                    width: "100%",
-                                    marginTop:
-                                        "24px",
-                                }}
-                            >
-                                {loading
-                                    ? "Creating Account..."
-                                    : "Create Account"}
-                            </button>
-                        </form>
-
-                        {/* Login */}
-                        <div
-                            style={{
-                                textAlign: "center",
-                                marginTop: "24px",
-                            }}
-                        >
-                            <p>
-                                Already have an
-                                account?
-                            </p>
-
-                            <button
-                                type="button"
-                                onClick={() =>
-                                    navigate(
-                                        "/login"
-                                    )
-                                }
-                                style={{
-                                    background:
-                                        "none",
-                                    border: "none",
-                                    padding: 0,
-                                    color:
-                                        "#2563eb",
-                                    cursor:
-                                        "pointer",
-                                    fontWeight:
-                                        "600",
-                                }}
-                            >
-                                Login to RailBook
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </main>
+            <button
+              type="button"
+              className="auth-outline-button"
+              onClick={() => navigate("/login")}
+            >
+              Login
+            </button>
+          </div>
         </div>
-    );
+
+        {/* RIGHT PANEL */}
+        <div className="auth-form-panel">
+          <div className="auth-form-content">
+            <h2>Register</h2>
+
+            <p className="auth-form-subtitle">
+              Create your RailBook account
+            </p>
+
+            <form onSubmit={handleSubmit}>
+
+              {/* NAME */}
+              <div className="auth-input-box">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Full Name"
+                  autoComplete="name"
+                />
+
+                <span className="auth-input-icon">
+                  👤
+                </span>
+              </div>
+
+              {/* EMAIL */}
+              <div className="auth-input-box">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  autoComplete="email"
+                />
+
+                <span className="auth-input-icon">
+                  ✉
+                </span>
+              </div>
+
+              {/* PHONE */}
+              <div className="auth-input-box">
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                  autoComplete="tel"
+                />
+
+                <span className="auth-input-icon">
+                  📱
+                </span>
+              </div>
+
+              {/* PASSWORD */}
+              <div className="auth-input-box">
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  autoComplete="new-password"
+                />
+
+                <span className="auth-input-icon">
+                  🔒
+                </span>
+              </div>
+
+              <div className="auth-password-hint">
+                Password must contain at least 6 characters.
+              </div>
+
+              {/* ERROR */}
+              {error && (
+                <div className="auth-error">
+                  {error}
+                </div>
+              )}
+
+              {/* SUCCESS */}
+              {success && (
+                <div className="auth-success">
+                  {success}
+                </div>
+              )}
+
+              {/* REGISTER */}
+              <button
+                type="submit"
+                className="auth-submit-button"
+                disabled={loading}
+              >
+                {loading
+                  ? "Creating Account..."
+                  : "Register"}
+              </button>
+            </form>
+
+            {/* LOGIN */}
+            <div className="auth-switch">
+              <span>Already have an account?</span>
+
+              <button
+                type="button"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 }
 
 export default Signup;

@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Payment from "./pages/Payment";
 import MyBookings from "./pages/MyBookings";
+import Auth from "./pages/Auth";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
@@ -29,15 +30,9 @@ function App() {
                         PUBLIC ROUTES
                        ================================================= */}
 
-                    <Route
-                        path="/signup"
-                        element={<Signup />}
-                    />
+                   <Route path="/login" element={<Auth />} />
 
-                    <Route
-                        path="/login"
-                        element={<Login />}
-                    />
+          <Route path="/signup" element={<Auth />} />
 
 
                     {/* =================================================

@@ -44,11 +44,11 @@ function Login() {
         return;
       }
 
-      // Store JWT
       localStorage.setItem("token", token);
-
-      // Store logged-in user
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.user)
+      );
 
       if (response.data.user.role === "admin") {
         navigate("/admin");
@@ -58,132 +58,119 @@ function Login() {
     } catch (error) {
       console.error("Login error:", error);
 
-      setError(error.response?.data?.message || "Unable to login.");
+      setError(
+        error.response?.data?.message || "Unable to login."
+      );
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div>
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-brand">RailBook</div>
+    <div className="auth-page">
+      <div className="auth-container">
+        {/* LEFT PANEL */}
+        <div className="auth-welcome-panel">
+          <div className="auth-welcome-content">
+            <div className="auth-logo">🚆</div>
 
-        <div className="navbar-actions">
-          <button onClick={() => navigate("/signup")}>Sign Up</button>
-        </div>
-      </nav>
+            <h1>Hello, Welcome!</h1>
 
-      {/* Login Page */}
-      <main className="page-container">
-        <div
-          style={{
-            maxWidth: "500px",
-            margin: "60px auto",
-          }}
-        >
-          {/* Header */}
-          <div
-            className="hero"
-            style={{
-              textAlign: "center",
-            }}
-          >
-            <h1>Welcome Back</h1>
+            <p>Don't have an account?</p>
 
-            <p>Login to your RailBook account to continue.</p>
+            <button
+              type="button"
+              className="auth-outline-button"
+              onClick={() => navigate("/signup")}
+            >
+              Register
+            </button>
           </div>
+        </div>
 
-          {/* Login Card */}
-          <div className="card">
+        {/* RIGHT PANEL */}
+        <div className="auth-form-panel">
+          <div className="auth-form-content">
+            <h2>Login</h2>
+
+            <p className="auth-form-subtitle">
+              Login to your RailBook account
+            </p>
+
             <form onSubmit={handleSubmit}>
-              {/* Email */}
-              <div className="form-group">
-                <label>Email Address</label>
-
+              {/* EMAIL */}
+              <div className="auth-input-box">
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Enter your email"
+                  placeholder="Email"
                   autoComplete="email"
                 />
+
+                <span className="auth-input-icon">✉</span>
               </div>
 
-              {/* Password */}
-              <div
-                className="form-group"
-                style={{
-                  marginTop: "20px",
-                }}
-              >
-                <label>Password</label>
-
+              {/* PASSWORD */}
+              <div className="auth-input-box">
                 <input
                   type="password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  placeholder="Enter your password"
+                  placeholder="Password"
                   autoComplete="current-password"
                 />
+
+                <span className="auth-input-icon">🔒</span>
               </div>
 
-              {/* Error */}
+              {/* ERROR */}
               {error && (
-                <div
-                  className="error-message"
-                  style={{
-                    marginTop: "20px",
-                  }}
-                >
+                <div className="auth-error">
                   {error}
                 </div>
               )}
 
-              {/* Login Button */}
+              {/* FORGOT PASSWORD */}
+              <div className="auth-forgot">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setError(
+                      "Password recovery is not available yet."
+                    );
+                  }}
+                >
+                  Forgot Password?
+                </button>
+              </div>
+
+              {/* LOGIN */}
               <button
                 type="submit"
-                className="primary-button"
+                className="auth-submit-button"
                 disabled={loading}
-                style={{
-                  width: "100%",
-                  marginTop: "24px",
-                }}
               >
                 {loading ? "Logging in..." : "Login"}
               </button>
             </form>
 
-            {/* Signup */}
-            <div
-              style={{
-                textAlign: "center",
-                marginTop: "24px",
-              }}
-            >
-              <p>Don't have an account?</p>
+            {/* MOBILE / SECONDARY SIGNUP */}
+            <div className="auth-switch">
+              <span>Don't have an account?</span>
 
               <button
                 type="button"
                 onClick={() => navigate("/signup")}
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  color: "#2563eb",
-                  cursor: "pointer",
-                  fontWeight: "600",
-                }}
               >
-                Create an account
+                Register
               </button>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

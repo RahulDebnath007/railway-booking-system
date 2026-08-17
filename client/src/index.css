@@ -843,3 +843,453 @@ body.dark-mode .station-code {
         overflow-x: auto !important;
     }
 }
+
+/* =========================================================
+   AUTHENTICATION TOGGLE
+   LOGIN + SIGNUP
+   ========================================================= */
+
+.auth-page {
+    min-height: 100vh;
+    width: 100%;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.auth-container {
+    position: relative;
+    width: min(1120px, 100%);
+    min-height: 660px;
+    background: #1e293b;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   BLUE WELCOME PANEL
+   ========================================================= */
+
+.auth-welcome {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 55%;
+    height: 100%;
+
+    background: #7191df;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        left 0.7s cubic-bezier(0.77, 0, 0.175, 1),
+        border-radius 0.7s ease;
+}
+
+/* Move blue panel to RIGHT during signup */
+
+.auth-page.signup-mode .auth-welcome {
+    left: 45%;
+    border-radius: 0 32px 32px 0;
+}
+
+/* Login state */
+
+.auth-page.login-mode .auth-welcome {
+    left: 0;
+    border-radius: 32px 0 0 32px;
+}
+
+/* =========================================================
+   WELCOME CONTENT
+   ========================================================= */
+
+.auth-welcome-content {
+    width: 75%;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.auth-train-icon {
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.auth-welcome h1 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 0 0 22px;
+    font-weight: 800;
+    color: white;
+}
+
+.auth-welcome p {
+    font-size: 18px;
+    margin-bottom: 28px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   OUTLINE BUTTON
+   ========================================================= */
+
+.auth-outline-button {
+    min-width: 180px;
+    padding: 14px 28px;
+
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+
+    background: transparent;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.auth-outline-button:hover {
+    background: white;
+    color: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.auth-form-section {
+    position: absolute;
+
+    top: 0;
+    left: 55%;
+
+    width: 45%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Only the active form is visible */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        left 0.7s cubic-bezier(0.77, 0, 0.175, 1),
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* Show only the active form */
+.auth-form-section.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* =========================================================
+   SIGNUP MODE
+   ========================================================= */
+
+/* The active signup form moves to the LEFT */
+.auth-page.signup-mode .auth-form-section.active {
+    left: 0;
+}
+
+/* =========================================================
+   FORM WRAPPER
+   ========================================================= */
+
+.auth-form-wrapper {
+    width: min(460px, 82%);
+}
+
+.auth-form-wrapper h2 {
+    text-align: center;
+
+    font-size: 42px;
+    margin: 0 0 10px;
+
+    color: #f8fafc;
+    font-weight: 800;
+}
+
+.auth-form-subtitle {
+    text-align: center;
+
+    color: #94a3b8;
+
+    margin: 0 0 35px;
+
+    font-size: 16px;
+}
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.auth-input {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.auth-input input {
+    width: 100%;
+    height: 58px;
+
+    box-sizing: border-box;
+
+    padding: 0 55px 0 20px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 10px;
+
+    background: #0f172a;
+    color: #f8fafc;
+
+    font-size: 16px;
+
+    border: 1px solid #334155;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.auth-input input::placeholder {
+    color: #94a3b8;
+}
+
+.auth-input input:focus {
+    border-color: #7191df;
+
+    box-shadow:
+        0 0 0 3px rgba(113, 145, 223, 0.15);
+}
+
+.auth-input span {
+    position: absolute;
+
+    right: 18px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 18px;
+}
+
+/* =========================================================
+   FORGOT PASSWORD
+   ========================================================= */
+
+.forgot-password {
+    text-align: right;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    margin: 8px 0 22px;
+
+    cursor: pointer;
+}
+
+.forgot-password:hover {
+    color: #7191df;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.auth-primary-button {
+    width: 100%;
+
+    height: 56px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #7191df;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.auth-primary-button:hover:not(:disabled) {
+    background: #5f7fd0;
+    transform: translateY(-2px);
+}
+
+.auth-primary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   BOTTOM TEXT
+   ========================================================= */
+
+.auth-bottom-text {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+.auth-bottom-text button {
+    border: none;
+    background: none;
+
+    color: #7191df;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-left: 5px;
+}
+
+.auth-bottom-text button:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.auth-error {
+    background: rgba(239, 68, 68, 0.12);
+
+    border: 1px solid rgba(239, 68, 68, 0.4);
+
+    color: #fca5a5;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+}
+
+.password-hint {
+    color: #64748b;
+    font-size: 13px;
+    margin: -8px 0 18px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .auth-page {
+        padding: 20px;
+    }
+
+    .auth-container {
+        min-height: 700px;
+        border-radius: 24px;
+    }
+
+    .auth-welcome {
+        width: 100%;
+        height: 250px;
+
+        top: 0;
+        left: 0 !important;
+
+        border-radius: 24px 24px 0 0 !important;
+    }
+
+    .auth-page.signup-mode .auth-welcome {
+        left: 0 !important;
+    }
+
+    .auth-welcome-content {
+        width: 90%;
+    }
+
+    .auth-welcome h1 {
+        font-size: 34px;
+    }
+
+    .auth-welcome p {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .auth-train-icon {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .auth-outline-button {
+        padding: 10px 24px;
+    }
+
+    /* Mobile: only the active form is visible */
+    .auth-form-section {
+        left: 0 !important;
+        top: 250px;
+
+        width: 100%;
+        height: calc(100% - 250px);
+    }
+
+    .auth-form-section:not(.active) {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .auth-form-section.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .auth-form-wrapper {
+        width: 82%;
+    }
+
+    .auth-form-wrapper h2 {
+        font-size: 34px;
+    }
+}
