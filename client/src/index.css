@@ -1925,201 +1925,45 @@ body.dark-mode .railbook-search-error {
     outline-offset: 2px;
 }
 
-/* =========================================
-   HOME TRAIN HERO
-========================================= */
-
-.home-hero {
-    position: relative;
-
-    width: 100%;
-    min-height: 760px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    overflow: visible;
-}
-.home-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: rgba(3, 10, 22, 0.62);
-
-    z-index: 1;
-    pointer-events: none;
-}
-/* Dark overlay */
-
-.home-hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        90deg,
-        rgba(15, 23, 42, 0.78),
-        rgba(15, 23, 42, 0.45),
-        rgba(15, 23, 42, 0.25)
-    );
-}
-
-/* Hero text */
-
-.home-hero-content {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-
-    text-align: center;
-
-    padding-top: 230px;
-}
-
-.home-hero-content h1 {
-    margin: 0;
-
-    color: #ffffff;
-
-    font-size: clamp(48px, 5vw, 76px);
-    font-weight: 800;
-    line-height: 1.1;
-
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-}
-
-.home-hero-content p {
-    margin-top: 24px;
-
-    color: #e5e7eb;
-
-    font-size: 20px;
-
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-}
-/* =========================================
-   SEARCH CARD POSITION
-========================================= */
-
-.search-card {
-    position: relative;
-
-    z-index: 10;
-
-    width: min(1060px, calc(100% - 48px));
-
-    margin: -40px auto 80px;
-
-    padding: 32px;
-
-    box-sizing: border-box;
-
-    background: rgba(20, 32, 52, 0.96);
-
-    border: 1px solid rgba(148, 163, 184, 0.28);
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.45),
-        0 10px 25px rgba(0, 0, 0, 0.25);
-
-    backdrop-filter: blur(10px);
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-    .home-hero {
-        min-height: 330px;
-
-        background-position: 65% center;
-    }
-
-    .home-hero-content h1 {
-        font-size: 38px;
-    }
-
-    .home-hero-content p {
-        font-size: 16px;
-    }
-
-    .home-hero + .search-card {
-        margin-top: -40px;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    .home-hero {
-        min-height: 280px;
-    }
-
-    .home-hero-content h1 {
-        font-size: 30px;
-    }
-
-    .home-hero-content p {
-        font-size: 15px;
-    }
-}
 
 /* =========================================================
-   RAILBOOK HOME PAGE
-   FULL SCREEN TRAIN BACKGROUND
-========================================================= */
+   RAILBOOK HOME — FULL-SCREEN TRAIN HERO
+   Single consolidated home implementation
+   ========================================================= */
 
 .home-page {
     width: 100%;
-    min-height: calc(100vh - 86px);
-
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-
-/* =========================================================
-   FULL TRAIN BACKGROUND
-========================================================= */
-
+/* Works with either existing home wrapper class */
+.home-hero,
 .home-background {
     position: relative;
-
     width: 100%;
-    min-height: calc(100vh - 86px);
+    min-height: calc(100vh - 76px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    overflow: hidden;
+    overflow: visible;
 }
 
-
-/* =========================================================
-   DARK OVERLAY
-========================================================= */
-
-.home-background-overlay {
+/* Dark image overlay */
+.home-hero::before,
+.home-background::before {
+    content: "";
     position: absolute;
-
     inset: 0;
-
     z-index: 1;
+    pointer-events: none;
 
     background:
         linear-gradient(
@@ -2130,26 +1974,35 @@ body.dark-mode .railbook-search-error {
         );
 }
 
+/* Supports an existing explicit overlay element too */
+.home-hero-overlay,
+.home-background-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
 
-/* =========================================================
-   HERO CONTENT
-========================================================= */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 15, 30, 0.82) 0%,
+            rgba(8, 20, 38, 0.68) 45%,
+            rgba(5, 15, 30, 0.78) 100%
+        );
+}
 
+/* Hero heading and subtitle */
 .home-hero-content {
     position: relative;
-
     z-index: 2;
 
     width: 100%;
     max-width: 1200px;
-
-    padding: 120px 30px 90px;
-
-    text-align: center;
-
     box-sizing: border-box;
-}
 
+    padding: 230px 30px 90px;
+    text-align: center;
+}
 
 .home-hero-content h1 {
     margin: 0;
@@ -2157,17 +2010,12 @@ body.dark-mode .railbook-search-error {
     color: #ffffff;
 
     font-size: clamp(42px, 5vw, 72px);
-
     font-weight: 800;
-
     line-height: 1.1;
-
     letter-spacing: -1px;
 
-    text-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.65);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.65);
 }
-
 
 .home-hero-content p {
     margin: 22px 0 0;
@@ -2175,36 +2023,31 @@ body.dark-mode .railbook-search-error {
     color: rgba(255, 255, 255, 0.92);
 
     font-size: 20px;
-
     line-height: 1.6;
 
-    text-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.55);
 }
 
-
-/* =========================================================
-   SEARCH CARD
-========================================================= */
-
-.home-background .search-card {
+/*
+   Search card
+   Works whether the card is inside the hero/background
+   or immediately after the hero.
+*/
+.home-hero .search-card,
+.home-background .search-card,
+.home-hero + .search-card {
     position: relative;
-
-    z-index: 3;
+    z-index: 10;
 
     width: min(1100px, calc(100% - 60px));
-
-    margin: -20px auto 80px;
-
+    margin: -40px auto 80px;
     padding: 32px;
 
     box-sizing: border-box;
 
-    background:
-        rgba(15, 27, 48, 0.94);
+    background: rgba(15, 27, 48, 0.94);
 
     border: 1px solid rgba(148, 163, 184, 0.22);
-
     border-radius: 18px;
 
     box-shadow:
@@ -2214,9 +2057,8 @@ body.dark-mode .railbook-search-error {
     backdrop-filter: blur(14px);
 }
 
-
 /* Search heading */
-
+.home-hero .search-card h2,
 .home-background .search-card h2 {
     margin-top: 0;
     margin-bottom: 28px;
@@ -2224,15 +2066,11 @@ body.dark-mode .railbook-search-error {
     color: #ffffff;
 
     font-size: 30px;
-
     font-weight: 750;
 }
 
-
-/* =========================================================
-   SEARCH GRID
-========================================================= */
-
+/* Search grid */
+.home-hero .search-card .form-grid,
 .home-background .search-card .form-grid {
     display: grid;
 
@@ -2243,20 +2081,18 @@ body.dark-mode .railbook-search-error {
         1fr;
 
     gap: 22px;
-
     align-items: end;
 }
 
-
-/* =========================================================
-   FORM GROUP
-========================================================= */
-
+/* Form groups */
+.home-hero .search-card .form-group,
 .home-background .search-card .form-group {
     width: 100%;
+    min-width: 0;
 }
 
-
+/* Labels */
+.home-hero .search-card label,
 .home-background .search-card label {
     display: block;
 
@@ -2265,35 +2101,27 @@ body.dark-mode .railbook-search-error {
     color: #ffffff;
 
     font-size: 16px;
-
     font-weight: 650;
 }
 
-
-/* =========================================================
-   INPUTS / SELECTS
-========================================================= */
-
+/* Inputs and selects */
+.home-hero .search-card select,
+.home-hero .search-card input,
 .home-background .search-card select,
 .home-background .search-card input {
     width: 100%;
-
     height: 54px;
 
     padding: 0 16px;
-
     box-sizing: border-box;
 
     color: #ffffff;
-
     background: rgba(8, 20, 40, 0.92);
 
     border: 1px solid rgba(148, 163, 184, 0.35);
-
     border-radius: 9px;
 
     font-size: 16px;
-
     outline: none;
 
     transition:
@@ -2302,7 +2130,8 @@ body.dark-mode .railbook-search-error {
         background 0.2s ease;
 }
 
-
+.home-hero .search-card select:focus,
+.home-hero .search-card input:focus,
 .home-background .search-card select:focus,
 .home-background .search-card input:focus {
     border-color: #3b82f6;
@@ -2311,40 +2140,31 @@ body.dark-mode .railbook-search-error {
         0 0 0 3px rgba(59, 130, 246, 0.18);
 }
 
-
-/* Date placeholder */
-
+.home-hero .search-card input[type="date"],
 .home-background .search-card input[type="date"] {
     color-scheme: dark;
 }
 
-
-/* =========================================================
-   SEARCH BUTTON
-========================================================= */
-
+/* Search button */
+.home-hero .search-card .primary-button,
 .home-background .search-card .primary-button {
     margin-top: 28px;
 
     min-height: 52px;
-
     padding: 0 28px;
 
     border: none;
-
     border-radius: 9px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #3b82f6
-        );
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
 
     color: #ffffff;
 
     font-size: 17px;
-
     font-weight: 700;
 
     cursor: pointer;
@@ -2355,57 +2175,57 @@ body.dark-mode .railbook-search-error {
         background 0.2s ease;
 }
 
-
-.home-background .search-card .primary-button:hover {
+.home-hero .search-card .primary-button:hover:not(:disabled),
+.home-background .search-card .primary-button:hover:not(:disabled) {
     transform: translateY(-2px);
 
     box-shadow:
         0 10px 25px rgba(37, 99, 235, 0.35);
 }
 
-
+.home-hero .search-card .primary-button:active,
 .home-background .search-card .primary-button:active {
     transform: translateY(0);
 }
 
-
+.home-hero .search-card .primary-button:disabled,
 .home-background .search-card .primary-button:disabled {
     opacity: 0.65;
-
     cursor: not-allowed;
-
     transform: none;
-
     box-shadow: none;
 }
 
-
-/* =========================================================
-   ERROR
-========================================================= */
-
+/* Search error */
 .home-search-error {
     margin-top: 18px;
-
     color: #fca5a5;
-
     font-size: 14px;
 }
 
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-.dark-mode .home-background {
+/* Dark mode */
+body.dark-mode .home-hero,
+body.dark-mode .home-background {
     background-color: #0f172a;
 }
 
+body.dark-mode .home-hero .search-card,
+body.dark-mode .home-background .search-card {
+    background: rgba(15, 27, 48, 0.96);
+    border-color: rgba(148, 163, 184, 0.22);
+}
 
-/* =========================================================
-   LIGHT MODE
-========================================================= */
+body.dark-mode .home-hero .search-card h2,
+body.dark-mode .home-background .search-card h2,
+body.dark-mode .home-hero .search-card label,
+body.dark-mode .home-background .search-card label {
+    color: #ffffff;
+}
 
+/* Light mode */
+body:not(.dark-mode) .home-hero::before,
+body:not(.dark-mode) .home-background::before,
+body:not(.dark-mode) .home-hero-overlay,
 body:not(.dark-mode) .home-background-overlay {
     background:
         linear-gradient(
@@ -2416,137 +2236,143 @@ body:not(.dark-mode) .home-background-overlay {
         );
 }
 
-
+body:not(.dark-mode) .home-hero .search-card,
 body:not(.dark-mode) .home-background .search-card {
-    background:
-        rgba(255, 255, 255, 0.94);
-
-    border-color:
-        rgba(148, 163, 184, 0.35);
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(148, 163, 184, 0.35);
 
     box-shadow:
         0 25px 60px rgba(15, 23, 42, 0.25);
 }
 
-
+body:not(.dark-mode) .home-hero .search-card h2,
 body:not(.dark-mode) .home-background .search-card h2 {
     color: #0f172a;
 }
 
-
+body:not(.dark-mode) .home-hero .search-card label,
 body:not(.dark-mode) .home-background .search-card label {
     color: #1e293b;
 }
 
-
+body:not(.dark-mode) .home-hero .search-card select,
+body:not(.dark-mode) .home-hero .search-card input,
 body:not(.dark-mode) .home-background .search-card select,
 body:not(.dark-mode) .home-background .search-card input {
     color: #0f172a;
-
     background: #ffffff;
-
     border-color: #cbd5e1;
 }
 
-
+body:not(.dark-mode) .home-hero .search-card input[type="date"],
 body:not(.dark-mode) .home-background .search-card input[type="date"] {
     color-scheme: light;
 }
 
-
 /* =========================================================
-   RESPONSIVE TABLET
-========================================================= */
+   HOME RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 900px) {
 
     .home-hero-content {
-        padding-top: 90px;
-        padding-bottom: 70px;
+        padding: 150px 24px 80px;
     }
 
+    .home-hero .search-card,
+    .home-background .search-card,
+    .home-hero + .search-card {
+        width: min(760px, calc(100% - 40px));
+    }
 
+    .home-hero .search-card .form-grid,
     .home-background .search-card .form-grid {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
+@media (max-width: 768px) {
 
-/* =========================================================
-   RESPONSIVE MOBILE
-========================================================= */
+    .home-hero,
+    .home-background {
+        min-height: 700px;
+        background-position: 65% center;
+    }
+
+    .home-hero-content {
+        padding: 120px 20px 70px;
+    }
+
+    .home-hero-content h1 {
+        font-size: 42px;
+    }
+
+    .home-hero-content p {
+        font-size: 17px;
+    }
+}
 
 @media (max-width: 600px) {
 
+    .home-hero,
     .home-background {
-        min-height: 100vh;
-
+        min-height: 760px;
         background-position: 62% center;
     }
 
-
     .home-hero-content {
-        padding:
-            70px
-            20px
-            60px;
+        padding: 90px 20px 60px;
     }
-
 
     .home-hero-content h1 {
         font-size: 38px;
-
         letter-spacing: -0.5px;
     }
 
-
     .home-hero-content p {
         margin-top: 16px;
-
         font-size: 16px;
     }
 
-
-    .home-background .search-card {
+    .home-hero .search-card,
+    .home-background .search-card,
+    .home-hero + .search-card {
         width: calc(100% - 30px);
-
         margin-top: -15px;
-
         margin-bottom: 40px;
-
         padding: 24px 20px;
-
         border-radius: 15px;
     }
 
-
+    .home-hero .search-card h2,
     .home-background .search-card h2 {
         font-size: 25px;
-
         margin-bottom: 22px;
     }
 
-
+    .home-hero .search-card .form-grid,
     .home-background .search-card .form-grid {
         grid-template-columns: 1fr;
-
         gap: 18px;
     }
 
-
+    .home-hero .search-card .primary-button,
     .home-background .search-card .primary-button {
         width: 100%;
-
         margin-top: 24px;
     }
-
 }
 
+@media (max-width: 480px) {
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+    .home-hero-content h1 {
+        font-size: 34px;
+    }
+
+    .home-hero-content p {
+        font-size: 15px;
+    }
+}
 
 @media (max-width: 400px) {
 
@@ -2554,14 +2380,38 @@ body:not(.dark-mode) .home-background .search-card input[type="date"] {
         font-size: 32px;
     }
 
-
     .home-hero-content p {
         font-size: 15px;
     }
 
-
+    .home-hero .search-card,
     .home-background .search-card {
         padding: 20px 16px;
     }
+}
 
+/* =========================================================
+   HOME NAVBAR OVERLAY
+   ========================================================= */
+
+.home-page .railbook-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 50;
+
+    background: rgba(8, 15, 30, 0.48);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(8px);
+}
+
+.home-page .railbook-brand {
+    color: #ffffff;
+}
+
+.home-page .railbook-nav-button {
+    background: #ffffff;
+    color: #111827;
 }
