@@ -1933,7 +1933,7 @@ body.dark-mode .railbook-search-error {
     position: relative;
 
     width: 100vw;
-    height: calc(100vh - 88px);
+    height: calc(125vh - 177px);
     min-height: 700px;
 
     margin-left: calc(50% - 50vw);
@@ -2013,7 +2013,7 @@ body.dark-mode .railbook-search-error {
 .search-card {
     position: relative;
     z-index: 5;
-    margin: -150px auto 0;
+    margin: -356px auto 0;
 }
 
 /* =========================================
@@ -2126,7 +2126,7 @@ body.dark-mode .railbook-search-error {
     width: 100%;
     max-width: 1200px;
 
-    padding: 120px 30px 90px;
+    
 
     text-align: center;
 
