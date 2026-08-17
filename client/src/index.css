@@ -2046,3 +2046,495 @@ body.dark-mode .railbook-search-error {
         font-size: 15px;
     }
 }
+
+/* =========================================================
+   RAILBOOK HOME PAGE
+   FULL SCREEN TRAIN BACKGROUND
+========================================================= */
+
+.home-page {
+    width: 100%;
+    min-height: calc(100vh - 86px);
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   FULL TRAIN BACKGROUND
+========================================================= */
+
+.home-background {
+    position: relative;
+
+    width: 100%;
+    min-height: calc(100vh - 86px);
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.home-background-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 15, 30, 0.82) 0%,
+            rgba(8, 20, 38, 0.68) 45%,
+            rgba(5, 15, 30, 0.78) 100%
+        );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.home-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1200px;
+
+    padding: 120px 30px 90px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+.home-hero-content h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(42px, 5vw, 72px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.65);
+}
+
+
+.home-hero-content p {
+    margin: 22px 0 0;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    text-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   SEARCH CARD
+========================================================= */
+
+.home-background .search-card {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(1100px, calc(100% - 60px));
+
+    margin: -20px auto 80px;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(15, 27, 48, 0.94);
+
+    border: 1px solid rgba(148, 163, 184, 0.22);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45),
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(14px);
+}
+
+
+/* Search heading */
+
+.home-background .search-card h2 {
+    margin-top: 0;
+    margin-bottom: 28px;
+
+    color: #ffffff;
+
+    font-size: 30px;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   SEARCH GRID
+========================================================= */
+
+.home-background .search-card .form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        1.2fr
+        1fr
+        1fr;
+
+    gap: 22px;
+
+    align-items: end;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.home-background .search-card .form-group {
+    width: 100%;
+}
+
+
+.home-background .search-card label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   INPUTS / SELECTS
+========================================================= */
+
+.home-background .search-card select,
+.home-background .search-card input {
+    width: 100%;
+
+    height: 54px;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    color: #ffffff;
+
+    background: rgba(8, 20, 40, 0.92);
+
+    border: 1px solid rgba(148, 163, 184, 0.35);
+
+    border-radius: 9px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.home-background .search-card select:focus,
+.home-background .search-card input:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+
+/* Date placeholder */
+
+.home-background .search-card input[type="date"] {
+    color-scheme: dark;
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+.home-background .search-card .primary-button {
+    margin-top: 28px;
+
+    min-height: 52px;
+
+    padding: 0 28px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.home-background .search-card .primary-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+
+.home-background .search-card .primary-button:active {
+    transform: translateY(0);
+}
+
+
+.home-background .search-card .primary-button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.home-search-error {
+    margin-top: 18px;
+
+    color: #fca5a5;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .home-background {
+    background-color: #0f172a;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body:not(.dark-mode) .home-background-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15, 23, 42, 0.60) 0%,
+            rgba(15, 23, 42, 0.40) 45%,
+            rgba(15, 23, 42, 0.55) 100%
+        );
+}
+
+
+body:not(.dark-mode) .home-background .search-card {
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border-color:
+        rgba(148, 163, 184, 0.35);
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.25);
+}
+
+
+body:not(.dark-mode) .home-background .search-card h2 {
+    color: #0f172a;
+}
+
+
+body:not(.dark-mode) .home-background .search-card label {
+    color: #1e293b;
+}
+
+
+body:not(.dark-mode) .home-background .search-card select,
+body:not(.dark-mode) .home-background .search-card input {
+    color: #0f172a;
+
+    background: #ffffff;
+
+    border-color: #cbd5e1;
+}
+
+
+body:not(.dark-mode) .home-background .search-card input[type="date"] {
+    color-scheme: light;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .home-hero-content {
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
+
+    .home-background .search-card .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .home-background {
+        min-height: 100vh;
+
+        background-position: 62% center;
+    }
+
+
+    .home-hero-content {
+        padding:
+            70px
+            20px
+            60px;
+    }
+
+
+    .home-hero-content h1 {
+        font-size: 38px;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    .home-hero-content p {
+        margin-top: 16px;
+
+        font-size: 16px;
+    }
+
+
+    .home-background .search-card {
+        width: calc(100% - 30px);
+
+        margin-top: -15px;
+
+        margin-bottom: 40px;
+
+        padding: 24px 20px;
+
+        border-radius: 15px;
+    }
+
+
+    .home-background .search-card h2 {
+        font-size: 25px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .home-background .search-card .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    .home-background .search-card .primary-button {
+        width: 100%;
+
+        margin-top: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .home-hero-content h1 {
+        font-size: 32px;
+    }
+
+
+    .home-hero-content p {
+        font-size: 15px;
+    }
+
+
+    .home-background .search-card {
+        padding: 20px 16px;
+    }
+
+}
