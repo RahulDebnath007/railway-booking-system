@@ -1931,9 +1931,18 @@ body.dark-mode .railbook-search-error {
 
 .home-hero {
     position: relative;
-    width: 100%;
-    min-height: 100vh;
-    height: 100vh;
+
+    /* Force full browser width */
+    width: 100vw;
+    max-width: none;
+
+    /* Break out of any centered/max-width parent */
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    /* Full viewport height */
+    min-height: calc(100vh - 76px);
+    height: calc(100vh - 76px);
 
     display: flex;
     align-items: center;
